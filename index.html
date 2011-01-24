@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <script src="http://pubnub.s3.amazonaws.com/pubnub-3.0.min.js"
+            pub-key="put-your-pub-key-here"
+            sub-key="put-your-sub-key-here"
+            ssl="off"
+            origin="pubsub.pubnub.com"
+            id="pubnub">
+    </script>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>jQuery PubNub Chat Widget Example</title>
+		<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.8.custom.css" rel="stylesheet" />	
+		<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.8.custom.min.js"></script>
+		<script type="text/javascript" src="js/underscore-min.js"></script>
+		<script type="text/javascript" src="js/chatroom.js"></script>
+		<style type='text/css'>
+		  .chat-area{position:relative; padding:12px; text-align:left; width:750px; height:280px;}
+      .chat-box{position:absolute;width:60%; height:50%; border:solid 1px black; overflow:auto; padding:3px;}
+      .chat-members{position:absolute; left:65%; height:50%; overflow:auto; border:solid 1px black; width:32%; padding:3px;}
+      .chat-input{position:absolute; bottom:25px; width:60%;}
+      .chat-textbox{width:70%; margin-right:8px; padding:3px;}
+		</style>
+		
+		<script type="text/javascript">
+      $(document).ready(function(){
+        $('#chat-enter-button').click(function(){
+          var chatChannel = "MyChannel";
+          var myID = (Math.random()*10000).toString().substring(10);
+          var myName = "User_" + myID;
+          $('.chat-area').chatroom({mainChannel:chatChannel, userID: myID , userName: myName, title: "Chat Room for channel: " + chatChannel});
+        })
+      })
+    </script>
+    
+		</head>
+		<body>
+		  <input type="button" value="chat" id="chat-enter-button"></input>
+      <div class="chat-area"></div>
+	</body>
+</html>
+
+
